@@ -70,7 +70,22 @@ itemWasToggled(event) {
 }
 ...
 ```
+### Methods
+*   **refresh** => This method is useful when accordion is hidden for example when using tabs or panels that go visible and hidden. It can be called from a SqueezeBox reference via `@ViewChild` or `@ViewChildren`, for example following code can refresh all the available squeezeboxes in the current component :
+```
+...
+@ViewChildren(SqueezeBox) squeezeboxes: QueryList<SqueezeBox>;
+...
 
+...
+onTabActive(event:Event) {
+    event.preventDefault();
+    this.squeezeboxes.toArray().forEach(function(s) { 
+        s.refresh();
+    });
+}
+...
+```
 
 ### SystemJS configuration
 Will need to [map](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md#map) the module:

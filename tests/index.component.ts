@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, ViewChildren, QueryList} from '@angular/core';
+import {SqueezeBox} from '../index';
 
 @Component({
     selector: 'app',
@@ -25,10 +26,28 @@ import {Component} from '@angular/core';
                 </sb-item>
             </squeezebox>
         </div>
+
+        <h3>Hidden Test</h3>
+        <div style="display: none;">
+            <squeezebox [multiple]="false">
+                <sb-item [collapsed]="false">
+                    <sb-item-head>Item 1</sb-item-head>
+                    <sb-item-body>Lorem ipsum dolor</sb-item-body>
+                </sb-item>
+                <sb-item>
+                    <sb-item-head>Item 2</sb-item-head>
+                    <sb-item-body>Lorem ipsum dolor</sb-item-body>
+                </sb-item>
+            </squeezebox>
+        </div>
+
+        <button (click)="refreshClick($event)">Refresh Hidden Tab Test</button>
     `
 })
 export class AppComponent {
     
+    @ViewChildren(SqueezeBox) squeezeboxes: QueryList<SqueezeBox>;
+
     private itemsList:Object[] = [
         {
         title: 'Item 1',
@@ -46,6 +65,13 @@ export class AppComponent {
 
     itemWasToggled(event) {
         console.log('collapsed:', event);
+    }
+
+    refreshClick(event:Event) {
+        event.preventDefault();
+        this.squeezeboxes.toArray().forEach(function(s) { 
+            s.refresh();
+        });
     }
     
 }

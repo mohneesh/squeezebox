@@ -25,6 +25,14 @@ var SqueezeBox = (function () {
             });
         }
     };
+    /**
+     * Refreshes and recalculates expanded items
+     */
+    SqueezeBox.prototype.refresh = function () {
+        this.items.toArray().forEach(function (i) {
+            i.refreshBody();
+        });
+    };
     __decorate([
         core_1.Input(),
         __metadata("design:type", Boolean)

@@ -22,6 +22,12 @@ var SBItem = (function () {
         this.squeezebox = squeezebox;
     }
     SBItem.prototype.ngAfterViewInit = function () {
+        this.refreshBody();
+    };
+    /**
+     * Refreshes body calculation
+     */
+    SBItem.prototype.refreshBody = function () {
         this.body.toggle(this.collapsed);
     };
     SBItem.prototype.toggle = function (collapsed) {
