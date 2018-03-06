@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var sb_item_body_1 = require("./sb-item-body");
 var squeezebox_1 = require("./squeezebox");
-var SBItem = (function () {
+var SBItem = /** @class */ (function () {
     function SBItem(squeezebox) {
         this.collapsed = true;
         this.onToggled = new core_1.EventEmitter();
