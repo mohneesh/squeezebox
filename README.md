@@ -14,7 +14,9 @@ Running sample can be seen [here](http://plnkr.co/edit/S9S8NBP1Ha8JKM6QjjmT?p=pr
 ### Typescript Usage
 Import the module wherever is going to be used:
 
-`import {SqueezeBoxModule} from 'squeezebox';`
+`import {SqueezeBoxModule} from 'squeezebox/dist';`
+
+
 
 Import the module also in your app module, like:
 
