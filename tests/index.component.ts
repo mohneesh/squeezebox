@@ -45,10 +45,10 @@ import {SqueezeBox} from '../index';
     `
 })
 export class AppComponent {
-    
+
     @ViewChildren(SqueezeBox) squeezeboxes: QueryList<SqueezeBox>;
 
-    private itemsList:Object[] = [
+    public itemsList:Object[] = [
         {
         title: 'Item 1',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident'
@@ -58,9 +58,9 @@ export class AppComponent {
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident'
         }
     ]
-    
+
     constructor() {
-        
+
     }
 
     itemWasToggled(event) {
@@ -69,9 +69,9 @@ export class AppComponent {
 
     refreshClick(event:Event) {
         event.preventDefault();
-        this.squeezeboxes.toArray().forEach(function(s) { 
+        this.squeezeboxes.toArray().forEach(function(s) {
             s.refresh();
         });
     }
-    
+
 }
