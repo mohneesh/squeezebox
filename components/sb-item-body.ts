@@ -1,4 +1,4 @@
-import {Component, ElementRef, Renderer, ViewChild} from '@angular/core';
+import {Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
 
 @Component({
     exportAs: 'sbItemBody',
@@ -13,7 +13,7 @@ export class SBItemBody {
 
     @ViewChild('body', {static: false}) bodyEl: ElementRef;
 
-    constructor(private renderer: Renderer) {}
+    constructor(private renderer: Renderer2) {}
     
     ngAfterViewInit() {
         const el = this.bodyEl.nativeElement;
@@ -41,6 +41,6 @@ export class SBItemBody {
 
     setHeight(height: string) {
         const el = this.bodyEl.nativeElement;
-        this.renderer.setElementStyle(el, 'height', height);
+        this.renderer.setStyle(el, 'height', height);
     }
 }
